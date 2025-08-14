@@ -41,5 +41,20 @@ int main(){
     }
     
     
+    // 3. Check if B.csv exists
+    if (!fileExists(B)) {
+        std::cout << "[INFO] " << B << " not found. Creating new file.\n";
+        Create(B);
+    } else {
+        std::cout << "[INFO] " << B << " found.\n";
+        // If found and not empty → empty it
+        if (!isFileEmpty(B)) {
+            std::cout << "[ACTION] " << B << " has data. Clearing contents.\n";
+            Create(B);
+        } else {
+            std::cout << "[INFO] " << B << " is already empty.\n";
+        }
+    }
+ 
  
 }
