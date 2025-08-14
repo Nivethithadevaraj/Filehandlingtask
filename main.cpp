@@ -55,6 +55,23 @@ int main(){
             std::cout << "[INFO] " << B << " is already empty.\n";
         }
     }
+    // 4. Copy contents from A.csv to B.csv
+    std::ifstream inFile(A);
+    std::ofstream outFile(B, std::ios::app);
+ 
+    std::cout << "[ACTION] Copying contents from " << A << " to " << B << "...\n";
+    std::string line;
+    while (std::getline(inFile, line)) {
+        outFile << line << "\n";
+    }
+ 
+    // Close files
+    inFile.close();
+    outFile.close();
+ 
+    std::cout << "[SUCCESS] Data copied from " << A << " to " << B << ".\n";
+ 
+    return 0;
  
  
 }
